@@ -36,8 +36,8 @@ class HashTable:
         """
         hash = 5381
         for x in key:
-            hash = ((hash << 5) + hash) + ord(x)
-        return hash & 0xFFFFFFFFFF
+            hash = hash*33 + ord(x)
+        return hash
 
     def hash_index(self, key):
         """
@@ -91,12 +91,10 @@ class HashTable:
 
 
 if __name__ == "__main__":
-    ht = HashTable(2)
-
+    ht = HashTable(20)
     ht.put("line_1", "Tiny hash table")
     ht.put("line_2", "Filled beyond capacity")
     ht.put("line_3", "Linked list saves the day!")
-
     print("")
     # Test storing beyond capacity
     print(ht.get("line_1"))
