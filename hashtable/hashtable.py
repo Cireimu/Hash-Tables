@@ -59,13 +59,13 @@ class HashTable:
 
         # if the there is already a node (key value pair)
         # run some more checks
-        elif node is not None:
+        elif node:
             # if the key of the node we're trying to insert doesn't match any of the keys
             # of the nodes in that indice
             if node.key != key:
 
                 # loops until there are no more nodes to loop through to check
-                while node.next is not None:
+                while node.next:
                     # if the key doesn't match the key of the current node we're looking at
                     # then move on to the next node
                     if node.key != key:
@@ -88,11 +88,11 @@ class HashTable:
         Implement this.
         """
         # if the key is found then continue on
-        if self.get(key) is not None:
+        if self.get(key):
             index = self.hash_index(key)
             node = self.storage[index]
             # loops until there are no more next nodes
-            while node.next is not None:
+            while node.next:
                 # if the key is matches then
                 # make node.value equal node.next.value and return
                 if node.key == key:
@@ -118,9 +118,9 @@ class HashTable:
         """
         index = self.hash_index(key)
         node = self.storage[index]
-        if node is not None:
+        if node:
             # loop until there are no more nodes
-            while node.next is not None:
+            while node.next:
                 # if the node with the key is found
                 # return the value within that node
                 # if not then move on to the next node
