@@ -1,5 +1,17 @@
 def no_dups(s):
     # Implement me.
+    cache = {}
+
+    if len(s) < 1:
+        return ''
+
+    for w in s.split():
+        if cache.get(w):
+            pass
+
+        else:
+            cache[w] = None
+    return ' '.join(cache.keys())
 
 
 if __name__ == "__main__":
